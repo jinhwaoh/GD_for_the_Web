@@ -55,7 +55,6 @@ a:hover {
 		display: block;
 		margin: auto;
 
-
 }
 
 h2 {
@@ -105,9 +104,30 @@ h4 {
 		width: 400px;
 }
 
+#op2 {
+		padding-top: 60px;
+		padding-bottom: 60px;
+		display: block;
+		margin: auto;
+		width: 400px;
+}
+
 #final {
+		padding-top: 60px;
+		padding-bottom: 60px;
+		display: block;
+		margin: auto;
+}
+
+#uc {
 		padding-top: 60px;
 		padding-bottom: 200px;
 		display: block;
 		margin: auto;
+}
+
+#ucv {
+		text-decoration: underline;
+		padding-bottom: 30px;
+		text-align: center;
 }
