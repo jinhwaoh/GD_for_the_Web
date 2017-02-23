@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="stylesheet2.css"/>
+	<title>WHAT IS A SPRITE SHEET?</title>
+</head>
+<body>
+
+	<!-- this is a comment, replace the text between the brackets and dashes to help annotate and organize your code -->
+	<h1>What is a Sprite Sheet?</h1>
+	<p>Sprite sheets already exist since the first days of computer games. <br>The idea is to create one big image that contains all animations of a character instead of dealing with many single files. They got less important for some time after more and more 3d games showed up - but got their big comeback with mobile devices and 2d games.</p>
+
+	<img id=title src="https://s-media-cache-ak0.pinimg.com/originals/9f/b1/25/9fb125f1fedc8cc62ab5b20699ebd87d.gif"/>
+
+
+	<a href="https://en.wikipedia.org/wiki/Sprite_(computer_graphics)"><center>What is a sprite?</center></a>
+
+	<img id=scan src="http://i.imgur.com/zjT68gK.png"/>
+	<p>Originally sprites referred to independent objects that are composited together, by hardware, with other elements such as a background. This occurs as each scan line is prepared for the video output device, such as a CRT, without involvement of the main CPU and without the need for a full-screen frame buffer.</p>
+
+	
+	<img id=sp src="http://img10.deviantart.net/7b0a/i/2010/031/9/0/net_hack_sprite_sheet_v1_1_by_chubbs_99.jpg"/>
+	<p>Use of the term sprite has expanded to refer to any two-dimensional bitmap used as part of a graphics display, even if drawn into a frame buffer (by either software or a GPU) instead of being composited on-the-fly at display time.</p>
+
+	<h2>How to make a sprite sheet?</h2>
+	<br />
+	<h3>Step 1</h3>
+	<p>Make an animation strip. Place each animation frame next to each other. All frames have the same size, and the animation is aligned in each frame.</p>
+	<img id=step1 src="https://camo.githubusercontent.com/4bfd585b71682a65d1d0afe7912ad7002e5dfaba/687474703a2f2f692e696d6775722e636f6d2f46444873752e706e67">
+
+	<p>You can also create a tileset from a sprite sheet. A tileset usually contains roads or building blocks for game levels.</p>
+
+	<img id=map src="https://cdn.codeandweb.com/blog/2016/05/10/how-to-create-a-sprite-sheet/tilemap.png"/>
+
+	<p>But in this format, the sprites waste a lot of memory, because of all the additional transparency.</p>
+
+	<h4>Step 2</h4>
+	<p>To optimize the unnecessary space, remove the transparency surrounding the sprite and shrink it to the bounding box.</p>
+
+	<img id=op src="https://openclipart.org/image/2400px/svg_to_png/215080/SpriteSheet.png"/>
+
+	<p>The game engine now needs additional information to draw the sprite: It needs to know where the sprite is located and how much transparency was removed.</p>
+
+	<h2>Sprite sheet, came back.</h2>
+	<img id=final src="https://i.ytimg.com/vi/22odulbixq8/hqdefault.jpg"/>
+
+
+</body>
+</html>
