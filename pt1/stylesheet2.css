@@ -131,3 +131,9 @@ h4 {
 		padding-bottom: 30px;
 		text-align: center;
 }
+
+div {
+		display: block;
+		margin: auto;
+		
+}
