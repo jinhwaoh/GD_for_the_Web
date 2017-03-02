@@ -1,0 +1,25 @@
+body {
+	background-color: black;
+}
+
+p {
+	font-family: 'Gotham';
+	font-weight: bolder;
+	text-align: center;
+	color: white;
+	padding-top: 100px;
+	font-size: 100px;
+}
+
+#t1 {
+	font-family: 'Gotham';
+	text-align: center;
+	color: white;
+	padding-top: 10px;
+	font-size: 20px; 
+	text-decoration: underline;
+}
+
+#t1:hover {
+	color:red;
+}
