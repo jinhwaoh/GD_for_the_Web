@@ -1,0 +1,68 @@
+.container {
+	margin-top: 30px;
+	margin-left: 30px;
+	margin-right: 20%;
+}
+
+.txt {
+	font-family: 'Share Tech Mono', monospace;
+
+	font-size: 60px;
+	font-weight: bold;
+}
+
+body {
+	background-image: url(images/back.png);
+}
+
+
+.bill {
+	content: url("http://bestanimations.com/Money/Coins/gold-coins-animated-gif.gif");
+}
+
+.industry {
+	content: url("http://orig14.deviantart.net/14fe/f/2004/319/6/3/usine_03.gif");
+}
+.donald {
+	content: url("http://rs795.pbsrc.com/albums/yy232/PixKaruumi/Pixels/Pixels%2091/disney32-1.gif~c200");
+}
+
+.harm {
+	content: url("http://i.imgur.com/WFTZtyR.gif");
+}
+
+.us {
+	content: url("https://media.giphy.com/media/zpfjN5yIobFIc/giphy.gif");
+}
+
+.wh {
+	content: url("http://pixeljoint.com/files/icons/full/white_house_silo.gif");
+}
+
+.seek {
+	content: url("https://secure.static.tumblr.com/8b98b52b0be8293892b2da75df0b8ed8/u0tlpzu/CD4om44ad/tumblr_static_couoxe4cn34k8scsgsow0w4gw_640_v2.gif");
+}
+
+.hard {
+	content: url("http://24.media.tumblr.com/8d80361ed854052b921d7949e6c50eb8/tumblr_mkucb0d34z1r67h3uo1_500.gif");
+}
+
+.tax {
+	content: url("https://s-media-cache-ak0.pinimg.com/originals/61/ab/15/61ab150dbeda09972d8b43f177af43a4.gif");
+}
+
+.night {
+	content: url("http://static.tumblr.com/bfb10ca7f5dbc251f22e7758c6df6c7f/h6vpdcq/orOnrlr79/tumblr_static_9noq0874k2sko4ksg884g8ssg.gif");
+}
+
+.q {
+	content: url("https://38.media.tumblr.com/0caee7e4146a8a74e6a740d656ecb85d/tumblr_mnakva6Dds1rfjowdo1_500.gif");
+}
+
+.medi {
+	content: url("http://rs204.pbsrc.com/albums/bb225/beautiful_disaster_emo_reject/my%20fave%20pixels/thpinkneedle.gif~c200");
+}
+
+.hp {
+	content: url("http://i793.photobucket.com/albums/yy214/gifs-cantinholumad/hospital4.gif");
+}
