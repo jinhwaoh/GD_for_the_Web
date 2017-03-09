@@ -1,18 +1,53 @@
 .container {
-	margin-top: 30px;
+	margin-top: 200px;
 	margin-left: 30px;
 	margin-right: 20%;
 }
 
+ul {
+    position: fixed;
+    top: 30px;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    	font-family: 'Share Tech Mono', monospace;
+
+    /*background-color: #333;*/
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
 .txt {
+	margin-top: 50px;
 	font-family: 'Share Tech Mono', monospace;
 
 	font-size: 60px;
-	font-weight: bold;
+	color: white;
+	line-height: 1.3;
 }
 
 body {
-	background-image: url(images/back.png);
+	background-image: url(images/backc.jpg);
 }
 
 
@@ -23,6 +58,11 @@ body {
 .industry {
 	content: url("http://orig14.deviantart.net/14fe/f/2004/319/6/3/usine_03.gif");
 }
+
+.industry:hover {
+	content: url("images/facsp.png");
+}
+
 .donald {
 	content: url("http://rs795.pbsrc.com/albums/yy232/PixKaruumi/Pixels/Pixels%2091/disney32-1.gif~c200");
 }
