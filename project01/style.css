@@ -1,0 +1,257 @@
+body {
+	background-color:  #e6e6e6;
+	font-family: 'Cinzel Decorative', cursive;
+	font-weight: bold;
+
+
+}
+
+.container {
+	margin-left: 10px;
+	position: relative;
+}
+
+.title {
+
+	font-size: 80px;
+	font-weight: normal;
+	line-height: 1.2;
+	font-family: 'Cinzel Decorative', cursive;
+	margin-bottom: 5px;
+
+}
+
+#myBtn {
+    list-style-type: none;
+    right: 1%;
+    overflow: hidden;
+    position: fixed;
+    top: 1%;
+/*    width: 100%;
+*/}
+
+#myBtn {
+    float: right;
+    z-index: 10;
+}
+
+#myBtn {
+    display: block;
+    color: black;
+    font-family: 'Cinzel Decorative', cursive;
+    font-weight: bold;
+    text-align: right;
+    text-decoration: none;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color:  #e6e6e6;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid black;
+    width: 40%;
+	font-family: 'Cinzel Decorative', cursive;
+	font-size: 20px;
+	text-align: center;
+
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}*/
+
+.wwmg {
+	position: absolute;
+	top: 18%;
+	right: -4%;
+	z-index: -10;
+}
+
+.wwmg1 {
+	position: absolute;
+	top: 5%;
+	left: 6%;
+	z-index: -10;
+}
+
+.wwmg2 {
+	position: absolute;
+	top: 25%;
+	left: 50%;
+	z-index: -10;
+}
+
+.wwmg3 {
+	position: absolute;
+	top: 40%;
+	left: -3%;
+	z-index: -10;
+}
+
+.wwmg4 {
+	position: absolute;
+	top: 80%;
+	right: 10%;
+	z-index: -10;
+}
+
+.wwmg5 {
+	position: absolute;
+	top: 50%;
+	right: 20%;
+	z-index: -10;
+}
+
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 30px;
+    text-align: left;
+    font-weight: 500;
+    padding: 10px;
+    font-size: 14px;}
+
+
+td {
+    height: 90px;
+    text-align: left;
+    font-weight: normal;
+    padding: 10px;
+    font-size: 14px;
+}
+
+tr:hover{background-color:rgba(150,150,150,0.2);}
+
+.img {
+	content: url("http://orig14.deviantart.net/14fe/f/2004/319/6/3/usine_03.gif");
+	border: none;
+	transition: transform 125ms ease-out;
+}
+
+.img:hover {
+	content: url("img/facsp.png");
+}
+
+.hd {
+	content: url("img/hd.gif");
+	border: none;
+}
+
+.hd:hover {
+	content: url("img/hda.png");
+	border: none;
+
+}
+
+.streng {
+	content: url("img/streng.gif");
+	border: none;
+}
+
+.streng:hover {
+	content: url("img/streng.png");
+	border: none;
+}
+
+.grave {
+	content: url("img/grave1.gif");
+	border: none;
+}
+
+.grave:hover {
+	content: url("img/grave1.png");
+	border: none;
+}
+
+.wound {
+	content: url("img/wound1.gif");
+	border: none;
+}
+
+.wound:hover {
+	content: url("img/wound1.png");
+	border: none;
+}
+
+.french {
+	content: url("img/french.gif");
+	border: none;
+}
+
+.french:hover {
+	content: url("img/wound1.png");
+	border: none;
+}
+
+.french1 {
+	content: url("img/french1.gif");
+	border: none;
+}
+
+.french:hover {
+	content: url("img/wound1.png");
+	border: none;
+}
+
+.french2 {
+	content: url("img/french2.gif");
+	border: none;
+}
+
+.french:hover {
+	content: url("img/wound1.png");
+	border: none;
+}
+
+.frenchdead {
+	content: url("img/frenchdead.gif");
+	border: none;
+}
+
+.french:hover {
+	content: url("img/wound1.png");
+	border: none;
+}
