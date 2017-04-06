@@ -1,4 +1,9 @@
 body {
+  background: url(img/back/fog1.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   background-color:  #e6e6e6;
 font-family: 'Space Mono', monospace;
 /*  width: 95%;
