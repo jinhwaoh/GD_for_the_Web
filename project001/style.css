@@ -1,132 +1,128 @@
-body{
-	width: 90%;
-	margin: auto;
-    font-family: 'Space Mono', monospace;
-    background-image: url('img/back/fog2.png');
-    background-color:  #d0d0d0;
+body {
+  background-color:  #e6e6e6;
+  font-family: 'space mono', cursive;
+  width: 85%;
+  font-size: 30px;
+
 
 }
 
-header {
-  height: 4em;
-  border-bottom: 5px solid #333;
+.fog {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -10;
 }
 
-nav {
-  border: 1px solid #cccccc;
-  height: 20%;
-  padding: .5em;
+.container {
+  margin-left: 10px;
+  position: relative;
 }
 
-section{
-  min-height: 100vh;
-  overflow: auto;
-  border-bottom: 1px solid red;
-}
+h2 {
 
-.column {
-  background: #efefef;
-  float: left;
-  margin-right: 2%;
-}
+  font-size: 90px;
+  font-weight: normal;
+  line-height: 1;
+  font-family: 'Cinzel Decorative', cursive;
+  margin-bottom: 30px;
 
-article {
-  padding: 1em;
-}
-
-.left {
-  width: 20%;
-}
-
-.middle {
-  width: 55%;
-}
-
-.right {
-  width: 21%;
-  margin-right: 0;
 }
 
 
-footer {
-  height: 5em;
-  background: 333333;
-
+.toggle {
+    padding-top: 25px;
+    font-size: 15px;
 }
 
-img{
-  width: 100%;
-  /*or max-width: 100%;*/
+.toggle, dl{
+    display: table-cell;
 }
 
-@media screen and (min-width: 1300px) {
-  body{
-    background: yellow;
-  }
+.question:hover {
+    cursor: pointer;
+}
 
- }
-  
-@media screen and (max-width: 1000px) {
-  .left {
-    width: 100%;
-    margin-bottom: 2%;
-    background: rgba(255,0,0,.5);
-  }
+dt { 
+    margin-top: 1em;
+    margin-left: 20px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 45px;
+}
 
-  .middle {
-    width: 59%;
-  }
+dd {
+    margin-left: 2em;
+}
 
-  .right {
-    width: 39%;
-  }
+.answer{ 
+    display: none; 
 }
 
 
-<<<<<<< Updated upstream:demos/06_responsive/style.css
-@media screen and (max-width: 400px) {
-  .left, .middle {
-=======
-@media screen and (min-width: 1000px) {
-    .middle, .right {
->>>>>>> Stashed changes:demos/07_responsive/style.css
-    width: 100%;
-    margin: 0;
-    background:yellow;
-  }
 
-  .left {
-    width: 100%;
-    margin-bottom: 2%;
-    background:green;
-  }
-  .middle {
-    width: 100%;
-    margin-bottom: 2%;
-    background:lightblue;
-  }
-  .right {
-    width: 100%;
-    margin-bottom: 2%;
-    background:brown;
-  }
+#myBtn {
+    list-style-type: none;
+    right: 1%;
+    overflow: hidden;
+    position: fixed;
+    top: 1%;
+/*    width: 100%;
+*/}
 
-<<<<<<< HEAD:demos/07_responsive/style.css
-.right {
-  width: 39%;
-}
-=======
-  .right{
-    display: none;
-  }
-
+#myBtn {
+    float: right;
+    z-index: 10;
 }
 
-/*Printed styles
-
-@media print{
-
->>>>>>> origin/gh-pages:demos/06_responsive/style.css
+#myBtn {
+    display: block;
+    color: black;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size:15px; 
+    text-align: right;
+    text-decoration: none;
 }
 
-*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color:  #e6e6e6;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid black;
+    width: 40%;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+

@@ -1,0 +1,257 @@
+body {
+  background-color:  #e6e6e6;
+font-family: 'Space Mono', monospace;
+/*  width: 95%;
+*/  font-size: 35px;
+  margin-left: 60px;
+  margin-top: 60px;
+
+
+}
+
+.fog {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -10;
+}
+
+.container {
+  margin-left: 10px;
+  position: relative;
+}
+
+.titletext {
+
+  font-size: 60px;
+  font-weight: normal;
+  line-height: 1;
+font-family: 'Space Mono', monospace;
+  /*font-family: 'Cinzel Decorative', cursive;*/
+  margin-bottom: 30px;
+
+}
+
+
+.toggle {
+    padding-top: 25px;
+    font-size: 15px;
+}
+
+.toggle, dl{
+    display: table-cell;
+}
+
+.question:hover {
+    cursor: pointer;
+}
+
+dt { 
+    margin-top: 20px;
+    margin-left: 20px;
+font-family: 'Space Mono', monospace;
+    font-size: 50px;
+}
+
+dd {
+    margin-left: 2em;
+}
+
+.answer{ 
+    display: none; 
+}
+
+
+
+#myBtn {
+    list-style-type: none;
+    right: 1%;
+    overflow: hidden;
+    position: fixed;
+    top: 1%;
+/*    width: 100%;
+*/}
+
+#myBtn {
+    float: right;
+    z-index: 10;
+}
+
+#myBtn {
+    display: block;
+    color: black;
+font-family: 'Playfair Display', serif;
+    font-size:15px; 
+    text-align: right;
+    text-decoration: none;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color:  #e6e6e6;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid black;
+    width: 40%;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ap1 {
+  background: url(img/night.gif) left top no-repeat;
+  background-size: 300px;
+  background-position: 550px 80px;
+}
+
+
+.ap2 {
+  background: url(img/grass.gif) left top no-repeat;
+  background-size: 300px;
+  background-position: 6% 1%;
+}
+
+.ap3 {
+  background: url(img/trees.png) left top no-repeat;
+  background-size: 650px;
+  background-position: 200px 80px;
+}
+
+
+.bp1{
+  background: url(img/amb.gif) left top no-repeat;
+  background-size: 300px;
+  background-position: 580px 100px;
+}
+
+
+.bp2{
+  background: url(img/uni2.gif) left top no-repeat;
+  background-size: 500px;
+  background-position: 50px 150px;
+}
+
+.bp3{
+  background: url(img/fire.gif) left top no-repeat;
+  background-size: 150px;
+  background-position: 410px 10px;
+}
+
+.cp1{
+  background: url(img/lines2.gif) left top no-repeat;
+  background-size: 350px;
+  background-position: 350px 100px;
+}
+
+.cp2{
+  background: url(img/kids.gif) left top no-repeat;
+  background-size: 350px;
+  background-position: 10px 100px;
+}
+
+.cp3{
+  background: url(img/farm.gif) left top no-repeat;
+  background-size: 350px;
+  background-position: 400px 50px;
+}
+
+.cp4{
+  background: url(img/garden.gif) left top no-repeat;
+  background-size: 350px;
+  background-position: 50px 50px;
+}
+
+.dp1{
+  background: url(img/gun3.gif) left top no-repeat;
+  background-size: 550px;
+  background-position: 300px 50px;
+}
+
+.dp2{
+  background: url(img/grave.png) left top no-repeat;
+  background-size: 300px;
+  background-position: 20px 50px;
+}
+
+.dp3{
+  background: url(img/dead.jpg) left top no-repeat;
+  background-size: 400px;
+  background-position: 420px 5px;
+}
+
+.ep1{
+  background: url(img/gas1.gif) left top no-repeat;
+  background-size: 400px;
+  background-position: 420px 105px;
+}
+
+.ep2{
+  background: url(img/green1.gif) left top no-repeat;
+  background-size: 350px;
+  background-position: 20px 100px;
+}
+
+.ep3{
+  background: url(img/wagon2.png) left top no-repeat;
+  background-size: 400px;
+  background-position: 300px 0px;
+}
+
+.fp1{
+  background: url(img/sol.gif) left top no-repeat;
+  background-size: 300px;
+  background-position: 300px -5px;
+}
+
+.fp2{
+  background: url(img/sol2.gif) left top no-repeat;
+  background-size: 350px;
+  background-position: 450px 10px;
+}
+
+.gp1{
+  background: url(img/home.gif) left top no-repeat;
+  background-size: 400px;
+  background-position: 450px 170px;
+}
+
+.gp2{
+  background: url(img/ruin1.gif) left top no-repeat;
+  background-size: 230px;
+  background-position: 100px 0px;
+}
+
+.sprite {
+  max-width: 200px;
+}

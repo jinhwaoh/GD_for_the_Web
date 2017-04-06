@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <title>Project 1</title>
+    <meta content="a repository for sample code" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="pstyle.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Rubik|Space+Mono" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <script type="text/javascript">
+// <![CDATA[
+var colour="#000000";
+var sparkles=120;
+var x=ox=400;
+var y=oy=300;
+var swide=800;
+var shigh=600;
+var sleft=sdown=0;
+var tiny=new Array();
+var star=new Array();
+var starv=new Array();
+var starx=new Array();
+var stary=new Array();
+var tinyx=new Array();
+var tinyy=new Array();
+var tinyv=new Array();
+
+window.onload=function() { if (document.getElementById) {
+  var i, rats, rlef, rdow;
+  for (var i=0; i<sparkles; i++) {
+    var rats=createDiv(3, 3);
+    rats.style.visibility="hidden";
+    document.body.appendChild(tiny[i]=rats);
+    starv[i]=0;
+    tinyv[i]=0;
+    var rats=createDiv(5, 5);
+    rats.style.backgroundColor="transparent";
+    rats.style.visibility="hidden";
+    var rlef=createDiv(1, 5);
+    var rdow=createDiv(5, 1);
+    rats.appendChild(rlef);
+    rats.appendChild(rdow);
+    rlef.style.top="2px";
+    rlef.style.left="0px";
+    rdow.style.top="0px";
+    rdow.style.left="2px";
+    document.body.appendChild(star[i]=rats);
+  }
+  set_width();
+  sparkle();
+}}
+
+function sparkle() {
+  var c;
+  if (x!=ox || y!=oy) {
+    ox=x;
+    oy=y;
+    for (c=0; c<sparkles; c++) if (!starv[c]) {
+      star[c].style.left=(starx[c]=x)+"px";
+      star[c].style.top=(stary[c]=y)+"px";
+      star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+      star[c].style.visibility="visible";
+      starv[c]=50;
+      break;
+    }
+  }
+  for (c=0; c<sparkles; c++) {
+    if (starv[c]) update_star(c);
+    if (tinyv[c]) update_tiny(c);
+  }
+  setTimeout("sparkle()", 40);
+}
+
+function update_star(i) {
+  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+  if (starv[i]) {
+    stary[i]+=1+Math.random()*3;
+    if (stary[i]<shigh+sdown) {
+      star[i].style.top=stary[i]+"px";
+      starx[i]+=(i%5-2)/5;
+      star[i].style.left=starx[i]+"px";
+    }
+    else {
+      star[i].style.visibility="hidden";
+      starv[i]=0;
+      return;
+    }
+  }
+  else {
+    tinyv[i]=50;
+    tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+    tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+    tiny[i].style.width="2px";
+    tiny[i].style.height="2px";
+    star[i].style.visibility="hidden";
+    tiny[i].style.visibility="visible"
+  }
+}
+
+function update_tiny(i) {
+  if (--tinyv[i]==25) {
+    tiny[i].style.width="1px";
+    tiny[i].style.height="1px";
+  }
+  if (tinyv[i]) {
+    tinyy[i]+=1+Math.random()*3;
+    if (tinyy[i]<shigh+sdown) {
+      tiny[i].style.top=tinyy[i]+"px";
+      tinyx[i]+=(i%5-2)/5;
+      tiny[i].style.left=tinyx[i]+"px";
+    }
+    else {
+      tiny[i].style.visibility="hidden";
+      tinyv[i]=0;
+      return;
+    }
+  }
+  else tiny[i].style.visibility="hidden";
+}
+
+document.onmousemove=mouse;
+function mouse(e) {
+  set_scroll();
+  y=(e)?e.pageY:event.y+sdown;
+  x=(e)?e.pageX:event.x+sleft;
+}
+
+function set_scroll() {
+  if (typeof(self.pageYOffset)=="number") {
+    sdown=self.pageYOffset;
+    sleft=self.pageXOffset;
+  }
+  else if (document.body.scrollTop || document.body.scrollLeft) {
+    sdown=document.body.scrollTop;
+    sleft=document.body.scrollLeft;
+  }
+  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+    sleft=document.documentElement.scrollLeft;
+    sdown=document.documentElement.scrollTop;
+  }
+  else {
+    sdown=0;
+    sleft=0;
+  }
+}
+
+window.onresize=set_width;
+function set_width() {
+  if (typeof(self.innerWidth)=="number") {
+    swide=self.innerWidth;
+    shigh=self.innerHeight;
+  }
+  else if (document.documentElement && document.documentElement.clientWidth) {
+    swide=document.documentElement.clientWidth;
+    shigh=document.documentElement.clientHeight;
+  }
+  else if (document.body.clientWidth) {
+    swide=document.body.clientWidth;
+    shigh=document.body.clientHeight;
+  }
+}
+
+function createDiv(height, width) {
+  var div=document.createElement("div");
+  div.style.position="absolute";
+  div.style.height=height+"px";
+  div.style.width=width+"px";
+  div.style.overflow="hidden";
+  div.style.backgroundColor=colour;
+  return (div);
+}
+// ]]>
+</script>
+</head>
+<body>
+
+<ul>
+<li id="myBtn">About</li>
+<!-- <li id="navi">view</li> -->
+</ul>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>the sprite archeology</p>
+    <img src="https://s-media-cache-ak0.pinimg.com/originals/ec/0a/6c/ec0a6c6b49aa1e3d36a047659efcadfa.jpg">
+  </div>
+
+</div>
+
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+
+
+    <div class="titletext">10 Poetic Responses<br>to Wars in History</div>
+    <div class="question dropdown">
+        <span class="toggle">
+         Thomas Hardy
+        </span>
+        <dl>
+            <dt>Drummer Hodge</dt>
+            <dd class="answer">
+                <p> <div class="ap1">They throw in Drummer Hodge, to rest<br>
+                    Uncoffined — just as found:<br>
+                    His landmark is a kopje-crest<br>
+                    That breaks the veldt around:<br>
+                    And foreign constellations west<br>
+                    Each night above his mound.<br><br></div>
+
+                    <div class="ap2">Young Hodge the drummer never knew —<br>
+                    Fresh from his Wessex home —<br>
+                    The meaning of the broad Karoo,<br>
+                    The Bush, the dusty loam,<br>
+                    And why uprose to nightly view<br>
+                    Strange stars amid the gloam.<br><br></div>
+
+                    <div class="ap3">Yet portion of that unknown plain<br>
+                    Will Hodge for ever be;<br>
+                    His homely Northern breast and brain<br>
+                    Grow up some Southern tree,<br>
+                    And strange-eyed constellations reign<br>
+                    His stars eternally.</div></p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         Keith Douglas
+        </span>
+        <dl>
+            <dt>Aristocrats</dt>
+            <dd class="answer">
+                <p><div class="bp1">The noble horse with courage in his eye,<br>
+                    Clean in the bone, looks up at a shellburst: <br>
+                    Away fly the images of the shires <br>
+                    But he puts the pipe back in his mouth. <br>
+                    Peter was unfortunately killed by an 88; <br>
+                    It took his leg away, he died in the ambulance. <br>
+                    I saw him crawling on the sand, he said <br>
+                    It's most unfair, they've shot my foot off. <br><br></div>
+
+                    <div class="bp2">How can I live among this gentle <br>
+                    Obsolescent breed of heroes, and not weep? <br>
+                    Unicorns, almost, <br>
+                    For they are fading into two legends <br>
+                    In which their stupidity and chivalry <br>
+                    Are celebrated. Each, fool and hero, will be an immortal. <br>
+                    These plains were their cricket pitch <br></div><div class="bp3">
+                    And in the mountains the tremendous drop fences <br>
+                    Brought down some of the runners. Here then <br>
+                    Under the stones and earth they dispose themselves, <br>
+                    I think with their famous unconcern. <br>
+                    It is not gunfire I hear, but a hunting horn.</div></p>
+            </dd>
+        </dl>
+    </div>
+     <div class="question dropdown">
+        <span class="toggle">
+        Philip Larkin
+        </span>
+        <dl>
+            <dt>MCMXIV</dt>
+            <dd class="answer">
+                <p><div class="cp1">Those long uneven lines<br>
+                    Standing as patiently<br>
+                    As if they were stretched outside<br>
+                    The Oval or Villa Park,<br>
+                    The crowns of hats, the sun<br>
+                    On moustached archaic faces<br>
+                    Grinning as if it were all<br>
+                    An August Bank Holiday lark;<br><br></div>
+
+                   <div class="cp2"> And the shut shops, the bleached<br>
+                    Established names on the sunblinds,<br>
+                    The farthings and sovereigns,<br>
+                    And dark-clothed children at play<br>
+                    Called after kings and queens,<br>
+                    The tin advertisements<br>
+                    For cocoa and twist, and the pubs<br>
+                    Wide open all day;<br><br></div>
+
+                    <div class="cp3">And the countryside not caring:<br>
+                    The place-names all hazed over<br>
+                    With flowering grasses, and fields<br>
+                    Shadowing Domesday lines<br>
+                    Under wheat's restless silence;<br>
+                    The differently-dressed servants<br>
+                    With tiny rooms in huge houses,<br>
+                    The dust behind limousines;<br><br></div>
+
+                    <div class="cp4">Never such innocence,<br>
+                    Never before or since,<br>
+                    As changed itself to past<br>
+                    Without a word - the men<br>
+                    Leaving the gardens tidy,<br>
+                    The thousands of marriages<br>
+                    Lasting a little while longer:<br>
+                    Never such innocence again.</div></p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         John McCrae
+        </span>
+        <dl>
+            <dt>In Flanders Fields</dt>
+            <dd class="answer">
+                <p><div class="dp1">In Flanders fields the poppies blow<br>
+                    Between the crosses, row on row,<br>
+                    That mark our place; and in the sky<br>
+                    The larks, still bravely singing, fly<br>
+                    Scarce heard amid the guns below.<br><br></div>
+
+                    <div class="dp2">We are the Dead. Short days ago<br>
+                    We lived, felt dawn, saw sunset glow,<br>
+                    Loved and were loved, and now we lie<br>
+                    In Flanders fields.<br><br>
+
+                    Take up our quarrel with the foe:<br></div><div class="dp3">
+                    To you from failing hands we throw<br>
+                    The torch; be yours to hold it high.<br>
+                    If ye break faith with us who die<br>
+                    We shall not sleep, though poppies grow<br>
+                    In Flanders fields.</div></p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         Wilfred Owen
+        </span>
+        <dl>
+            <dt>Dulce et Decorum Est</dt>
+            <dd class="answer">
+                <p><div class="ep1">Bent double, like old beggars under sacks,<br>
+                    Knock-kneed, coughing like hags, we cursed through sludge,<br>
+                    Till on the haunting flares we turned our backs, <br>
+                    And towards our distant rest began to trudge. <br>
+                    Men marched asleep. Many had lost their boots, <br>
+                    But limped on, blood-shod. All went lame; all blind;<br> 
+                    Drunk with fatigue; deaf even to the hoots <br>
+                    Of gas-shells dropping softly behind. <br><br></div>
+
+                    <div class="ep2">Gas! GAS! Quick, boys!—An ecstasy of fumbling <br>
+                    Fitting the clumsy helmets just in time, <br>
+                    But someone still was yelling out and stumbling<br> 
+                    And flound’ring like a man in fire or lime.—<br>
+                    Dim through the misty panes and thick green light,<br> 
+                    As under a green sea, I saw him drowning. <br><br>
+
+                    In all my dreams before my helpless sight, <br>
+                    He plunges at me, guttering, choking, drowning.<br> <br></div>
+
+                    <div class="ep3">If in some smothering dreams, you too could pace <br>
+                    Behind the wagon that we flung him in, <br>
+                    And watch the white eyes writhing in his face,<br> 
+                    His hanging face, like a devil’s sick of sin; <br>
+                    If you could hear, at every jolt, the blood <br>
+                    Come gargling from the froth-corrupted lungs, <br>
+                    Obscene as cancer, bitter as the cud <br>
+                    Of vile, incurable sores on innocent tongues,— <br>
+                    My friend, you would not tell with such high zest <br>
+                    To children ardent for some desperate glory, <br>
+                    The old Lie: Dulce et decorum est <br>
+                    Pro patria mori.</p></div>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         Siegfried Sassoon
+        </span>
+        <dl>
+            <dt>Dreamers</dt>
+            <dd class="answer">
+                <p><div class="fp1">Soldiers are citizens of death's grey land, <br>
+                    Drawing no dividend from time's to-morrows.   <br>
+                    In the great hour of destiny they stand, <br>
+                    Each with his feuds, and jealousies, and sorrows.<br>   
+                    Soldiers are sworn to action; they must win   <br>
+                    Some flaming, fatal climax with their lives. <br>
+                    Soldiers are dreamers; when the guns begin <br>
+                    They think of firelit homes, clean beds and wives.<br><br></div> 
+
+                    <div class="fp2">I see them in foul dug-outs, gnawed by rats, <br>
+                    And in the ruined trenches, lashed with rain,   <br>
+                    Dreaming of things they did with balls and bats, <br>
+                    And mocked by hopeless longing to regain   <br>
+                    Bank-holidays, and picture shows, and spats, <br>
+                    And going to the office in the train. </p></div>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         Rupert Brooke
+        </span>
+        <dl>
+            <dt>The Soldier</dt>
+            <dd class="answer">
+                <p><div class="gp1">If I should die, think only this of me:<br>
+                    That there’s some corner of a foreign field<br>
+                    That is for ever England. There shall be<br>
+                    In that rich earth a richer dust concealed;<br>
+                    A dust whom England bore, shaped, made aware,<br>
+                    Gave, once, her flowers to love, her ways to roam,<br>
+                    A body of England’s, breathing English air,<br>
+                    Washed by the rivers, blest by suns of home.<br><br></div>
+
+                    <div class="gp2">And think, this heart, all evil shed away,<br>
+                    A pulse in the eternal mind, no less<br>
+                    Gives somewhere back the thoughts of England given;<br>
+                    Her sights and sounds; dreams happy as her day;<br>
+                    And laughter, learnt of friends; and gentleness,<br>
+                    In hearts at peace, under an English heaven.</div>
+                    </p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         Clifford Dyment
+        </span>
+        <dl>
+            <dt>The Son</dt>
+            <dd class="answer">
+                <p>I found the letter in a cardboard box,<br>
+                    Unfamous history. I read the words.<br>
+                    The ink was frail and brown, the paper dry<br>
+                    After so many years of being kept.<br>
+                    The letter was a soldier's, from the front—<br>
+                    Conveyed his love and disappointed hope<br>
+                    Of getting leave. It's cancelled now, he wrote.<br>
+                    My luck is at the bottom of the sea.<br><br>
+
+                    Outside the sun was hot; the world looked bright;<br>
+                    I heard a radio, and someone laughed.<br>
+                    I did not sing, or laugh, or love the sun,<br>
+                    Within the quiet room I thought of him,<br>
+                    My father killed, and all the other men,<br>
+                    Whose luck was at the bottom of the sea. </p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         Majorie Pickthall
+        </span>
+        <dl>
+            <dt>Marching Men</dt>
+            <dd class="answer">
+                <p>Under the level winter sky <br>
+                    I saw a thousand Christs go by.<br> 
+                    They sang an idle song and free <br>
+                    As they went up to calvary. <br><br>
+
+                    Careless of eye and coarse of lip, <br>
+                    They marched in holiest fellowship. <br>
+                    That heaven might heal the world, they gave<br> 
+                    Their earth-born dreams to deck the grave. <br><br>
+
+                    With souls unpurged and steadfast breath <br>
+                    They supped the sacrament of death. <br>
+                    And for each one, far off, apart, <br>
+                    Seven swords have rent a woman's heart. </p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         Isaac Rosenberg
+        </span>
+        <dl>
+            <dt>Break of Day in the Trenches</dt>
+            <dd class="answer">
+                <p>The darkness crumbles away.<br>
+                    It is the same old druid Time as ever,<br>
+                    Only a live thing leaps my hand,<br>
+                    A queer sardonic rat,<br>
+                    As I pull the parapet’s poppy<br>
+                    To stick behind my ear.<br>
+                    Droll rat, they would shoot you if they knew<br>
+                    Your cosmopolitan sympathies.<br>
+                    Now you have touched this English hand<br>
+                    You will do the same to a German<br>
+                    Soon, no doubt, if it be your pleasure<br>
+                    To cross the sleeping green between.<br>
+                    It seems you inwardly grin as you pass<br>
+                    Strong eyes, fine limbs, haughty athletes,<br>
+                    Less chanced than you for life,<br>
+                    Bonds to the whims of murder,<br>
+                    Sprawled in the bowels of the earth,<br>
+                    The torn fields of France.<br>
+                    What do you see in our eyes<br>
+                    At the shrieking iron and flame<br>
+                    Hurled through still heavens?<br>
+                    What quaver—what heart aghast?<br>
+                    Poppies whose roots are in man’s veins<br>
+                    Drop, and are ever dropping;<br>
+                    But mine in my ear is safe—<br>
+                    Just a little white with the dust.</p>
+            </dd>
+        </dl>
+    <!-- </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         1998-1999
+        </span>
+        <dl>
+            <dt>Kosovo War</dt>
+            <dd class="answer">
+                <p>The Kosovo <img src="img/du1.gif"> was an <img class="army2" src="img/army2.gif"> conflict in Kosovo that lasted from 5 March 1998[8] until 11 June 1999. It was fought by the forces of the Federal Republic of Yugoslavia (by this time, consisting of the Republics of Montenegro and Serbia), which controlled Kosovo before the <img class="du1" src="img/du1.gif">, and the Kosovo Albanian rebel group known as the Kosovo Liberation <img class="army2" src="img/army2.gif"> (KLA), with air support from the North Atlantic Treaty Organisation (NATO) from 24 March 1999, and ground support from the Albanian <img class="army2" src="img/army2.gif">.</p>
+            </dd>
+        </dl>
+    </div>
+     <div class="question dropdown">
+        <span class="toggle">
+         2003-2011
+        </span>
+        <dl>
+            <dt>Iraq War</dt>
+            <dd class="answer">
+                <p>The Iraq <img src="img/du1.gif"> was a protracted armed conflict that began in 2003 with the <img class="tank" src="img/tank.gif"> of Iraq by a United States-led coalition that toppled the government of Saddam Hussein. The conflict continued for much of the next decade as an insurgency emerged to oppose the occupying forces and the post-<img class="tank" src="img/tank.gif"> Iraqi government. An estimated 151,000 to 600,000 or more Iraqis were <img class="dead" src="img/dead.gif">  in the first 3–4 years of conflict. It became re-involved in 2014 at the head of a new coalition; the insurgency and many dimensions of the civil <img class="army2" src="img/army2.gif"> conflict continue.</p>
+            </dd>
+        </dl>
+    </div> -->
+
+<div class="fog"><img src="img/back/fog1.png"></div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <title>Project 1</title>
+    <meta content="a repository for sample code" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="style.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Space+Mono" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <script type="text/javascript">
+// <![CDATA[
+var colour="#000000";
+var sparkles=120;
+var x=ox=400;
+var y=oy=300;
+var swide=800;
+var shigh=600;
+var sleft=sdown=0;
+var tiny=new Array();
+var star=new Array();
+var starv=new Array();
+var starx=new Array();
+var stary=new Array();
+var tinyx=new Array();
+var tinyy=new Array();
+var tinyv=new Array();
+
+window.onload=function() { if (document.getElementById) {
+  var i, rats, rlef, rdow;
+  for (var i=0; i<sparkles; i++) {
+    var rats=createDiv(3, 3);
+    rats.style.visibility="hidden";
+    document.body.appendChild(tiny[i]=rats);
+    starv[i]=0;
+    tinyv[i]=0;
+    var rats=createDiv(5, 5);
+    rats.style.backgroundColor="transparent";
+    rats.style.visibility="hidden";
+    var rlef=createDiv(1, 5);
+    var rdow=createDiv(5, 1);
+    rats.appendChild(rlef);
+    rats.appendChild(rdow);
+    rlef.style.top="2px";
+    rlef.style.left="0px";
+    rdow.style.top="0px";
+    rdow.style.left="2px";
+    document.body.appendChild(star[i]=rats);
+  }
+  set_width();
+  sparkle();
+}}
+
+function sparkle() {
+  var c;
+  if (x!=ox || y!=oy) {
+    ox=x;
+    oy=y;
+    for (c=0; c<sparkles; c++) if (!starv[c]) {
+      star[c].style.left=(starx[c]=x)+"px";
+      star[c].style.top=(stary[c]=y)+"px";
+      star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+      star[c].style.visibility="visible";
+      starv[c]=50;
+      break;
+    }
+  }
+  for (c=0; c<sparkles; c++) {
+    if (starv[c]) update_star(c);
+    if (tinyv[c]) update_tiny(c);
+  }
+  setTimeout("sparkle()", 40);
+}
+
+function update_star(i) {
+  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+  if (starv[i]) {
+    stary[i]+=1+Math.random()*3;
+    if (stary[i]<shigh+sdown) {
+      star[i].style.top=stary[i]+"px";
+      starx[i]+=(i%5-2)/5;
+      star[i].style.left=starx[i]+"px";
+    }
+    else {
+      star[i].style.visibility="hidden";
+      starv[i]=0;
+      return;
+    }
+  }
+  else {
+    tinyv[i]=50;
+    tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+    tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+    tiny[i].style.width="2px";
+    tiny[i].style.height="2px";
+    star[i].style.visibility="hidden";
+    tiny[i].style.visibility="visible"
+  }
+}
+
+function update_tiny(i) {
+  if (--tinyv[i]==25) {
+    tiny[i].style.width="1px";
+    tiny[i].style.height="1px";
+  }
+  if (tinyv[i]) {
+    tinyy[i]+=1+Math.random()*3;
+    if (tinyy[i]<shigh+sdown) {
+      tiny[i].style.top=tinyy[i]+"px";
+      tinyx[i]+=(i%5-2)/5;
+      tiny[i].style.left=tinyx[i]+"px";
+    }
+    else {
+      tiny[i].style.visibility="hidden";
+      tinyv[i]=0;
+      return;
+    }
+  }
+  else tiny[i].style.visibility="hidden";
+}
+
+document.onmousemove=mouse;
+function mouse(e) {
+  set_scroll();
+  y=(e)?e.pageY:event.y+sdown;
+  x=(e)?e.pageX:event.x+sleft;
+}
+
+function set_scroll() {
+  if (typeof(self.pageYOffset)=="number") {
+    sdown=self.pageYOffset;
+    sleft=self.pageXOffset;
+  }
+  else if (document.body.scrollTop || document.body.scrollLeft) {
+    sdown=document.body.scrollTop;
+    sleft=document.body.scrollLeft;
+  }
+  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+    sleft=document.documentElement.scrollLeft;
+    sdown=document.documentElement.scrollTop;
+  }
+  else {
+    sdown=0;
+    sleft=0;
+  }
+}
+
+window.onresize=set_width;
+function set_width() {
+  if (typeof(self.innerWidth)=="number") {
+    swide=self.innerWidth;
+    shigh=self.innerHeight;
+  }
+  else if (document.documentElement && document.documentElement.clientWidth) {
+    swide=document.documentElement.clientWidth;
+    shigh=document.documentElement.clientHeight;
+  }
+  else if (document.body.clientWidth) {
+    swide=document.body.clientWidth;
+    shigh=document.body.clientHeight;
+  }
+}
+
+function createDiv(height, width) {
+  var div=document.createElement("div");
+  div.style.position="absolute";
+  div.style.height=height+"px";
+  div.style.width=width+"px";
+  div.style.overflow="hidden";
+  div.style.backgroundColor=colour;
+  return (div);
+}
+// ]]>
+</script>
+</head>
+<body>
+
+<ul>
+<li id="myBtn">About</li>
+<!-- <li id="navi">view</li>
+ --></ul>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>the sprite archeology</p>
+    <img src="https://s-media-cache-ak0.pinimg.com/originals/ec/0a/6c/ec0a6c6b49aa1e3d36a047659efcadfa.jpg">
+  </div>
+
+</div>
+
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+
+
+    <h2>the sprite<br>archology</h2>
+    <div class="question dropdown">
+        <span class="toggle">
+         1914-1918
+        </span>
+        <dl>
+            <dt>World War I</dt>
+            <dd class="answer">
+                <p>World <img class="du1" src="img/du1.gif"> I (WWI or WW1), also known as the First World <img class="du1" src="img/du1.gif">, the Great War, or the War to End All Wars, was a <img class="globe" src="img/worldwar1/globe.gif"> war originating in Europe that lasted from 28 July 1914 to 11 November 1918. More than 70 million <img class="du1" src="img/du1.gif"> personnel, including 60 million Europeans, were mobilised in one of the largest <img class="du1" src="img/du1.gif"> in <img class="history" src="img/worldwar1/history.gif">. Over nine million <img class="army2" src="img/army2.gif"> and seven million civilians <img class="dead" src="img/dead.gif"> as a result of the war (including the victims of a number of genocides), a casualty rate exacerbated by the belligerents' technological and <img class="train" src="img/train.gif"> sophistication, and the tactical stalemate caused by gruelling trench warfare. It was one of the <img class="dead" src="img/dead.gif"> conflicts in <img class="history" src="img/worldwar1/history.gif">, and paved the <img src="img/way.gif"> for major political changes, including revolutions in many of the nations involved.</p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         1917-1923
+        </span>
+        <dl>
+            <dt>Russian Civil War</dt>
+            <dd class="answer">
+                <p>The Russian Civil <img class="du1" src="img/du1.gif"> (Russian: Гражда́нская война́ в Росси́и, tr. Grazhdanskaya voyna v Rossiy; November 1917 – October 1922) was a multi-<img src="img/party2.gif"> <img class="du1" src="img/du1.gif"> in the former Russian empire immediately after the Russian Revolutions of 1917, as many factions vied to determine Russia's political future. The two largest <img class="army2" src="img/army2.gif"> groups were the Red <img class="army2" src="img/army2.gif">, fighting for the Bolshevik form of socialism, and the loosely allied forces known as the White <img class="army3" src="img/army3.gif">, which included diverse interests favoring monarchism, capitalism and alternative forms of socialism, each with democratic and antidemocratic variants. In addition, rival militant socialists and nonideological Green <img class="army3" src="img/army3.gif"> fought against both the Bolsheviks and the Whites. Eight foreign nations intervened against the Red <img class="army2" src="img/army2.gif">, notably the Allied Forces and the pro-German armies. The Red <img class="army2" src="img/army2.gif"> defeated the White <img class="army3" src="img/army3.gif"> Forces of South Russia in Ukraine and the <img class="army2" src="img/army2.gif"> led by Admiral Aleksandr Kolchak in Siberia in 1919. The remains of the White forces commanded by Pyotr Nikolayevich Wrangel were beaten in Crimea and evacuated in late 1920. Lesser <img class="du1" src="img/du1.gif"> of the <img class="du1" src="img/du1.gif"> continued on the periphery for two more years, and minor skirmishes with the remnants of the White forces in the Far East continued well into 1923. <img class="army2" src="img/army2.gif"> national resistance in Central Asia was not completely crushed until 1934. There were an estimated 7,000,000–12,000,000 <img class="dead" src="img/dead.gif"> during the <img class="du1" src="img/du1.gif">, mostly civilians. The Russian Civil <img class="du1" src="img/du1.gif"> has been described by some as the greatest national catastrophe that Europe had yet seen.</p>
+            </dd>
+        </dl>
+    </div>
+     <div class="question dropdown">
+        <span class="toggle">
+        1927-1949
+        </span>
+        <dl>
+            <dt>Chinese Civil War</dt>
+            <dd class="answer">
+                <p>The <img class="china" src="img/china.gif"> Civil War was fought between forces <img class="loyal" src="img/loyal.gif"> to the Kuomintang (KMT)-led government of the Republic of <img class="china" src="img/china.gif">, and forces <img class="loyal" src="img/loyal.gif"> to the Communist <img src="img/party2.gif"> of <img class="china" src="img/china.gif"> (CPC). The civil war began in August 1927, with Generalissimo Chiang Kai-shek's Northern Expedition, and essentially ended when major hostilities ceased in 1950. It can generally be <img src="img/moses2.gif"> into two stages; the first being from 1927 to 1937, and the second being from 1946 to 1950 with the Second Sino-Japanese War <img src="img/moses.gif"> them. The war was a major turning point in modern <img class="china" src="img/china.gif"> <img class="history" src="img/worldwar1/history.gif">, with the CPC gaining control of almost the entirety of <img class="land" src="img/land.gif">  <img class="china" src="img/china.gif">, establishing the People's Republic of <img class="china" src="img/china.gif"> (PRC) to replace the KMT's Republic of <img class="china" src="img/china.gif"> (ROC). It also caused a lasting political and <img class="army2" src="img/army2.gif"> standoff between the two sides of the Taiwan Strait, with the ROC in Taiwan and the PRC in <img class="land" src="img/land.gif"> <img class="china" src="img/china.gif"> both officially claiming to be the legitimate government of all of <img class="china" src="img/china.gif">.</p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         1939-1945
+        </span>
+        <dl>
+            <dt>World War II</dt>
+            <dd class="answer">
+                <p>World <img class="du1" src="img/du1.gif"> II (often abbreviated to WWII or WW2), also known as the Second World <img class="du1" src="img/du1.gif"><div id="du1" style="display:none;"> <img src="img/sprite/du1sp.png"></div>, was a <img class="globe" src="img/worldwar1/globe.gif"> <img class="du1" src="img/du1.gif"> that lasted from 1939 to 1945, although related conflicts began earlier. It involved the vast majority of the <img class="du1" src="img/du1.gif">'s countries—including all of the great powers—eventually forming two opposing <img class="army2" src="img/army2.gif"> alliances: the Allies and the Axis. It was the most widespread war in <img class="history" src="img/worldwar1/history.gif">, and directly involved more than 100 million people from over 30 countries. In a state of "total <img class="du1" src="img/du1.gif"> ", the major participants threw their entire economic, <img class="train" src="img/train.gif"> , and <img src="img/computer.gif"> capabilities behind the <img class="du1" src="img/du1.gif"> effort, erasing the distinction between civilian and <img class="army2" src="img/army2.gif"> resources. Marked by mass deaths of civilians, including the Holocaust (in which approximately 11 million people were killed) and the strategic <img class="bomb" src="img/bomb.gif"> of <img class="train" src="img/train.gif"> and population centres (in which approximately one million were killed, and which included the atomic <img class="bomb" src="img/bomb.gif"> of Hiroshima and Nagasaki), it resulted in an estimated 50 million to 85 million <img class="dead" src="img/dead.gif">. These made World <img class="du1" src="img/du1.gif"> II the deadliest conflict in human <img class="history" src="img/worldwar1/history.gif">.</p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         1950-1953
+        </span>
+        <dl>
+            <dt>Korean War</dt>
+            <dd class="answer">
+                <p><img class="korea" src="img/korea.gif"> was ruled by Japan from 1910 until the closing days of <img class="globe" src="img/worldwar1/globe.gif"> <img class="du1" src="img/du1.gif"> II. In August 1945, the Soviet Union declared <img class="du1" src="img/du1.gif"> on Japan, as a result of an agreement with the United States, and liberated <img src="img/north.gif"> of the 38th parallel. <img class="america" src="img/america.gif"> forces subsequently moved into the south. By 1948, as a product of the <img class="cold" src="img/cold.gif"> <img class="du1" src="img/du1.gif"> between the Soviet Union and the United States, <img class="korea" src="img/korea.gif">  was <img src="img/moses.gif">  into two regions, with separate governments. Both governments claimed to be the legitimate government of all of <img class="korea" src="img/korea.gif">, and neither side accepted the border as permanent. The conflict escalated into open warfare when <img src="img/north.gif"> forces—supported by the Soviet Union and <img class="china" src="img/china.gif">—moved into the south on 25 June 1950. On that day, the <img class="america" src="img/america.gif"> <img class="security" src="img/security.gif"> Council recognized this <img src="img/north.gif"> act as <img class="tank" src="img/tank.gif"> and called for an immediate ceasefire. On 27 June, the <img class="security" src="img/security.gif"> Council adopted S/RES/83: Complaint of aggression upon the Republic of <img class="korea" src="img/korea.gif"> and decided the formation and dispatch of the UN Forces in <img class="korea" src="img/korea.gif">. Twenty-one countries of the United Nations eventually contributed to the UN force, with the United States providing 88% of the UN's <img class="army2" src="img/army2.gif"> personnel.</p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         1953-1959
+        </span>
+        <dl>
+            <dt>Cuban Revolution</dt>
+            <dd class="answer">
+                <p>The Cuban Revolution (Spanish: Revolución cubana) (1959) was an <img class="army2" src="img/army2.gif"> revolt conducted by Fidel Castro's 26th of July Movement and its allies against the right-<img class="wing" src="img/rightwing.gif"> authoritarian government of Cuban President Fulgencio Batista. The revolution began in July 1953, and continued sporadically until the rebels finally ousted Batista on 1 January 1959, replacing his government with a revolutionary socialist state. The 26th of July Movement later reformed along communist lines, becoming the Communist <img src="img/party2.gif"> in October 1965. Castro’s organized <img class="du1" src="img/du1.gif"> set up on the eastern end of Santiago de Cuba against the <img class="army2" src="img/army2.gif"> barracks ended in despair and failure due to government.</p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         1954-1962
+        </span>
+        <dl>
+            <dt>Algerian War</dt>
+            <dd class="answer">
+                <p>The Algerian <img class="du1" src="img/du1.gif">, also known as the Algerian <img class="du1" src="img/du1.gif"> of Independence or the Algerian Revolution (Arabic: الثورة الجزائرية‎‎ Al-thawra Al-Jazaa'iriyya;, Berber: Tagrawla Tadzayrit;, French: Guerre d'Algérie or Révolution algérienne) was a <img class="du1" src="img/du1.gif"> between France and the Algerian National Liberation Front (French: Front de Libération Nationale - FLN) from 1954 to 1962, which led to Algeria gaining its independence from France. An important decolonization <img class="du1" src="img/du1.gif">, it was a complex conflict characterized by guerrilla warfare, maquis <img class="du1" src="img/du1.gif">, and the use of torture by both sides. The conflict also became a civil <img class="du1" src="img/du1.gif"> between <img class="loyal" src="img/loyal.gif"> Algerians supporting a French Algeria and their Algerian nationalist counterparts.</p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         1955-1975
+        </span>
+        <dl>
+            <dt>Vietnam War</dt>
+            <dd class="answer">
+                <p>The Vietnam <img class="du1" src="img/du1.gif"> (Vietnamese: Chiến tranh Việt Nam), also known as the Second Indochina <img class="du1" src="img/du1.gif">, and known in Vietnam as Resistance <img class="du1" src="img/du1.gif"> Against <img class="america" src="img/america.gif"> (Vietnamese: Kháng chiến chống Mỹ) or simply the <span class="america"><img src="img/america.gif"></span> <img class="du1" src="img/du1.gif">, was a <img class="du1" src="img/du1.gif"> that occurred in Vietnam, Laos, and Cambodia from 1 November 1955 to the fall of Saigon on 30 April 1975. It was the second of the Indochina <img class="du1" src="img/du1.gif"> and was officially fought between North Vietnam and the government of South Vietnam. The North Vietnamese <img class="army2" src="img/army2.gif"> was supported by the Soviet Union, <img class="china" src="img/china.gif"> and other communist allies and the South Vietnamese <img class="army2" src="img/army2.gif"> was supported by the <img class="america" src="img/america.gif">, <img class="korea" src="img/korea.gif">, Australia, Thailand and other anti-communist allies.The <img class="du1" src="img/du1.gif"> is therefore considered a <img class="cold" src="img/cold.gif"> War-era proxy <img class="du1" src="img/du1.gif">.</p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         1955-1975
+        </span>
+        <dl>
+            <dt>Soviet–Afghan War</dt>
+            <dd class="answer">
+                <p>The Soviet–Afghan <img class="du1" src="img/du1.gif"> lasted over nine years from December 1979 to February 1989. Insurgent groups known as the mujahideen fought against the Soviet <img class="army2" src="img/army2.gif"> and the Democratic Republic of Afghanistan. Between 562,000–2 million civilians were <img class="dead" src="img/dead.gif"> and millions of Afghans fled the country as <img src="img/tent.png">, mostly to Pakistan and Iran. The <img class="du1" src="img/du1.gif"> is considered part of the <img class="cold" src="img/cold.gif"> <img class="du1" src="img/du1.gif">.</p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         1990-1991
+        </span>
+        <dl>
+            <dt>Gulf War</dt>
+            <dd class="answer">
+                <p>The Gulf <img class="du1" src="img/du1.gif"> (2 August 1990 – 28 February 1991), codenamed Operation <img class="desert" src="img/desert.gif">  <img class="shield" src="img/shield.gif">  (2 August 1990 – 17 January 1991) for operations leading to the buildup of troops and defense of Saudi Arabia and Operation <img src="img/desert2.gif"> Storm (17 January 1991 – 28 February 1991) in its <img class="army2" src="img/army2.gif"> phase, was a <img class="du1" src="img/du1.gif"> waged by coalition forces from 35 nations led by the United States against Iraq in response to Iraq's <img class="army2" src="img/army2.gif"> and annexation of Kuwait.</p>
+            </dd>
+        </dl>
+    </div>
+    <div class="question dropdown">
+        <span class="toggle">
+         1998-1999
+        </span>
+        <dl>
+            <dt>Kosovo War</dt>
+            <dd class="answer">
+                <p>The Kosovo <img src="img/du1.gif"> was an <img class="army2" src="img/army2.gif"> conflict in Kosovo that lasted from 5 March 1998[8] until 11 June 1999. It was fought by the forces of the Federal Republic of Yugoslavia (by this time, consisting of the Republics of Montenegro and Serbia), which controlled Kosovo before the <img class="du1" src="img/du1.gif">, and the Kosovo Albanian rebel group known as the Kosovo Liberation <img class="army2" src="img/army2.gif"> (KLA), with air support from the North Atlantic Treaty Organisation (NATO) from 24 March 1999, and ground support from the Albanian <img class="army2" src="img/army2.gif">.</p>
+            </dd>
+        </dl>
+    </div>
+     <div class="question dropdown">
+        <span class="toggle">
+         2003-2011
+        </span>
+        <dl>
+            <dt>Iraq War</dt>
+            <dd class="answer">
+                <p>The Iraq <img src="img/du1.gif"> was a protracted armed conflict that began in 2003 with the <img class="tank" src="img/tank.gif"> of Iraq by a United States-led coalition that toppled the government of Saddam Hussein. The conflict continued for much of the next decade as an insurgency emerged to oppose the occupying forces and the post-<img class="tank" src="img/tank.gif"> Iraqi government. An estimated 151,000 to 600,000 or more Iraqis were <img class="dead" src="img/dead.gif">  in the first 3–4 years of conflict. It became re-involved in 2014 at the head of a new coalition; the insurgency and many dimensions of the civil <img class="army2" src="img/army2.gif"> conflict continue.</p>
+            </dd>
+        </dl>
+    </div>
+
+<div class="fog"><img src="img/back/fog1.png"></div>
+<!-- <div class="fog1"><img src="img/back/fog2.png"></div> -->
+<!-- <div class="bat1"><img src="img/back/bat01.gif"></div>
+ --><!-- <div class="bat2"><img src="img/back/bat01.gif"></div> -->
+
+
+</body>
+</html>
