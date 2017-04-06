@@ -252,6 +252,63 @@ font-family: 'Playfair Display', serif;
   background-position: 100px 0px;
 }
 
+
+.hp1{
+  background: url(img/army.gif) left top no-repeat;
+  background-size: 250px;
+  background-position: 250px 100px;
+}
+
+.hp2{
+  background: url(img/way.gif) left top no-repeat;
+  background-size: 300px;
+  background-position: 100px 0px;
+}
+
+
+.ip1{
+  background: url(img/color.gif) left top no-repeat;
+  background-size: 250px;
+  background-position: 10px 0px;
+}
+
+.ip2{
+  background: url(img/eye.gif) left top no-repeat;
+  background-size: 300px;
+  background-position: 450px 0px;
+}
+
+.ip3{
+  background: url(img/dead.gif) left top no-repeat;
+  background-size: 200px;
+  background-position: 100px 0px;
+}
+
+
+.jp1{
+  background: url(img/fire.gif) left top no-repeat;
+  background-size: 250px;
+  background-position: 10px 0px;
+}
+
+.jp2{
+  background: url(img/sleeping.gif) left top no-repeat;
+  background-size: 300px;
+  background-position: 450px 0px;
+}
+
+.jp3{
+  background: url(img/desert.gif) left top no-repeat;
+  background-size: 600px;
+  background-position: 100px 0px;
+}
+
+.jp4{
+  background: url(img/blood2.gif) left top no-repeat;
+  background-size: 300px;
+  background-position: 100px 0px;
+}
+
 .sprite {
   max-width: 200px;
 }
