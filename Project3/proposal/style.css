@@ -1,0 +1,85 @@
+body{
+	width: 100%;
+	margin: auto;
+    font-family: 'Space Mono', monospace;
+    text-decoration: none;
+    background-color: black;
+
+}
+
+a {
+    color:white;
+    text-decoration: none;
+}
+
+nav {
+  height: 20%;
+  padding: .5em;
+  position: fixed;
+  right: 5%;
+  text-decoration: none;
+  color:white;
+}
+
+section{
+  min-height: 100vh;
+  overflow: auto;
+}
+
+
+footer {
+  height: 5em;
+  background: 333333;
+
+}
+
+/*img{
+  width: 100%;
+  or max-width: 100%;
+}*/
+
+.text1 {
+    margin-top: 70px;
+    color: white;
+    font-size: 50px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.text2 {
+    margin-top: 70px;
+    color: black;
+    font-size: 50px;
+    margin-bottom: 60px;
+        text-align: center;
+
+}
+
+.text3 {
+    margin-top: 70px;
+    color: white;
+    font-size: 50px;
+    margin-bottom: 60px;
+        text-align: center;
+
+}
+
+
+
+
+#demo1 {
+    background: url(img.jpg) no-repeat center fixed; 
+    background-size: cover;
+}
+
+
+
+#demo2 {
+    background: url(img2.jpg) no-repeat center fixed; 
+    background-size: cover;
+}
+
+#demo3 {
+    background: url(walking.gif) no-repeat center fixed; 
+    background-size: cover;
+}
